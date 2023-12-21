@@ -1,3 +1,6 @@
+client_secret.json
+.env
+
 # compiled output
 /dist
 /node_modules
