@@ -1,10 +1,13 @@
 import { Injectable, ExecutionContext } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
+import { AuthGuard, IAuthModuleOptions } from '@nestjs/passport';
 
 @Injectable()
 export class GoogleOAuthGuard extends AuthGuard('google') {
-  canActivate(context: ExecutionContext) {
-    console.log('ctxt', context);
-    return super.canActivate(context);
+  getAuthenticateOptions(
+    context: ExecutionContext,
+  ): IAuthModuleOptions<any> | undefined {
+    return {
+      accessType: 'offline',
+    };
   }
 }

@@ -15,6 +15,6 @@ export class Credential {
   @Column()
   accessToken: string;
 
-  // @Column()
-  // refreshToken: string;
+  @Column()
+  refreshToken: string;
 }

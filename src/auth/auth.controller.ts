@@ -13,6 +13,8 @@ import { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { GoogleOAuthGuard } from './guards/google-oauth.guard';
 
+var passport = require('passport');
+
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}

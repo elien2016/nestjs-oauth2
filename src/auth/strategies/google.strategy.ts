@@ -35,8 +35,8 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     credential.provider = 'google';
     credential.providerId = id;
     credential.accessToken = accessToken;
-    // credential.refreshToken = refreshToken;
-    this.credentialsRepository.save(credential);
+    credential.refreshToken = refreshToken;
+    this.credentialsRepository.upsert([credential], ['provider', 'providerId']);
 
     const user = {
       provider: 'google',
